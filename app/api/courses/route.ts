@@ -7,7 +7,6 @@ export const POST = async (req: Request) => {
     const { userId } = auth();
     const { title } = await req.json();
     if (!userId) return new NextResponse("Unauthorized", { status: 401 });
-    if (!title) return new NextResponse("Title is Missing", { status: 400 });
     const course = await db.course.create({
       data: {
         userId,
