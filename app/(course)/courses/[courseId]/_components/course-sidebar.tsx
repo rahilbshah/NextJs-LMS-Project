@@ -26,14 +26,14 @@ export const CourseSidebar = async ({
     return redirect("/");
   }
 
-  // const purchase = await db.purchase.findUnique({
-  //   where: {
-  //     userId_courseId: {
-  //       userId,
-  //       courseId: course.id,
-  //     }
-  //   }
-  // });
+  const purchase = await db.purchase.findUnique({
+    where: {
+      userId_courseId: {
+        userId,
+        courseId: course.id,
+      }
+    }
+  });
 
   return (
     <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
@@ -41,14 +41,14 @@ export const CourseSidebar = async ({
         <h1 className="font-semibold">
           {course.title}
         </h1>
-        {/* {purchase && (
+        {purchase && (
           <div className="mt-10">
             <CourseProgress
               variant="success"
               value={progressCount}
             />
           </div>
-        )} */}
+        )}
       </div>
       <div className="flex flex-col w-full">
         {course.chapters.map((chapter) => (
@@ -58,7 +58,7 @@ export const CourseSidebar = async ({
             label={chapter.title}
             isCompleted={!!chapter.userProgress?.[0]?.isCompleted}
             courseId={course.id}
-            // isLocked={!chapter.isFree && !purchase}
+            isLocked={!chapter.isFree && !purchase}
           />
         ))}
       </div>

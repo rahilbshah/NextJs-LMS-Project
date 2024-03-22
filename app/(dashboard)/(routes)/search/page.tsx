@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
 import { Categories } from "./_components/categories";
-import { getCourses } from "@/actions/et-course";
+import { getCourses } from "@/actions/get-course";
 import { CoursesList } from "@/components/courses-list";
 
 interface SearchPageProps {

@@ -10,7 +10,7 @@ interface CourseSidebarItemProps {
   id: string;
   isCompleted: boolean;
   courseId: string;
-  // isLocked: boolean;
+  isLocked: boolean;
 };
 
 export const CourseSidebarItem = ({
@@ -18,12 +18,12 @@ export const CourseSidebarItem = ({
   id,
   isCompleted,
   courseId,
-  // isLocked,
+  isLocked,
 }: CourseSidebarItemProps) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  // const Icon = isLocked ? Lock : (isCompleted ? CheckCircle : PlayCircle);
+  const Icon = isLocked ? Lock : (isCompleted ? CheckCircle : PlayCircle);
   const isActive = pathname?.includes(id);
 
   const onClick = () => {
@@ -42,14 +42,14 @@ export const CourseSidebarItem = ({
       )}
     >
       <div className="flex items-center gap-x-2 py-4">
-        {/* <Icon
+        <Icon
           size={22}
           className={cn(
             "text-slate-500",
             isActive && "text-slate-700",
             isCompleted && "text-emerald-700"
           )}
-        /> */}
+        />
         {label}
       </div>
       <div className={cn(
