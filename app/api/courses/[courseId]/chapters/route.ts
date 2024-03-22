@@ -23,7 +23,7 @@ export const POST = async (
       data: {
         title,
         courseId,
-        position: lastChapter ? lastChapter.position + 1 : 1,
+        position: lastChapter ? lastChapter.position + 1 : 0,
       },
     });
     return NextResponse.json(chapter);

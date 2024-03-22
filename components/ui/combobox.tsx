@@ -49,6 +49,7 @@ export function Combobox({ options, value, onChange }: ComboboxProps) {
             <CommandGroup>
               {options.map((option) => (
                 <CommandItem
+                  style={{ pointerEvents: "auto", cursor: "pointer" }}
                   key={option.value}
                   onSelect={() => {
                     onChange(option.value === value ? "" : option.value);
